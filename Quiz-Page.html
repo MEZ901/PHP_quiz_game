@@ -9,20 +9,25 @@
     <title>PHP quiz</title>
 </head>
 <body>
-    <h1 class="header">PHQuiz</h1>
-    <p class="header">PROVE YOUR <span>PHP</span> SKILLS TO THE WORLD!</p>
-    <section class="main">
-        <div>
-            <p>The goal of this quiz is to test your skills and knowledge in PHP. All what you have to do is clicking on the button below and prove yourself to the world!</p>
-            <a href="./Quiz-Page.html"><button>Take the quiz</button></a>
-        </div>
-        <img src="./assets/img/women-code.webp" alt="cover">
-        <div class="wave">
+    <section class="info">
+        <div class="custom-shape-divider">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
             </svg>
         </div>
+        <h1>Some Rules of this Quiz</h1>
+        <ul>
+            <li>1. You will have only <span>30 seconds</span> per each question.</li>
+            <li>2. Once you select your answer, it can't be undone.</li>
+            <li>3. You can't select any option once time goes off.</li>
+            <li>4. You can't exit from the Quiz while you're playing.</li>
+            <li>5. You'll get points on the basis of your correct answers.</li>
+        </ul>
+        <div class="action">
+            <a href="./index.html"><button class="btn exit">Exit Quiz</button></a>
+            <button class="btn continue">Continue</button>
+        </div>
     </section>
     <script src="./assets/script.js"></script>
-</body>
+    </body>
 </html>

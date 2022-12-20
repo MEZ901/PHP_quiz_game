@@ -33,7 +33,7 @@ body{
         background-color: purple;
         color: white;
         border: 0;
-        border-radius: 10px;
+        border-radius: 5px;
         cursor: pointer;
         &:hover{
             background-color: rgb(154, 18, 154);
@@ -60,3 +60,66 @@ body{
         fill: purple;
     }
 }
+
+.custom-shape-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    svg {
+        position: relative;
+        display: block;
+        width: calc(300% + 1.3px);
+        height: 215px;
+    }
+    .shape-fill {
+    fill: purple;
+    }
+}
+.info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 100px 20vw;
+    background: #202731;
+    height: 100vh;
+    gap: 2rem;
+    ul{
+        list-style: none;
+        li{
+            padding: 5px;
+            span{
+                color: rgb(207, 45, 207);
+                font-weight: bold;
+            }
+        }
+    }
+    .btn{
+        padding: 10px 25px;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        &.exit{
+            border: 2px solid purple;
+            background-color: inherit;
+            &:hover{
+                background-color: purple;
+            }
+        }
+        &.continue{
+            border: 2px solid purple;
+            background-color: purple;
+            &:hover{
+                background-color: rgb(154, 18, 154);
+                border: 2px solid rgb(154, 18, 154);
+            }
+        }
+    }
+}
+
+
