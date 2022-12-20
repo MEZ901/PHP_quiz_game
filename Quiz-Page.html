@@ -9,6 +9,32 @@
     <title>PHP quiz</title>
 </head>
 <body>
+    <ul class="stepper-component">
+        <li>
+            <i class="fa-solid fa-circle-info"></i>
+            <div class="active progress one">
+                <p>1</p>
+                <i class="checkMark fa-solid fa-check"></i>
+            </div>
+            <p class="text">Info</p>
+        </li>
+        <li>
+            <i class="fa-brands fa-quinscape"></i>
+            <div class="progress two">
+                <p>2</p>
+                <i class="checkMark fa-solid fa-check"></i>
+            </div>
+            <p class="text">Quiz</p>
+        </li>
+        <li>
+            <i class="fa-solid fa-square-poll-vertical"></i>
+            <div class="progress three">
+                <p>3</p>
+                <i class="checkMark fa-solid fa-check"></i>
+            </div>
+            <p class="text">Result</p>
+        </li>
+    </ul>
     <section class="info">
         <div class="custom-shape-divider">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -25,7 +51,7 @@
         </ul>
         <div class="action">
             <a href="./index.html"><button class="btn exit">Exit Quiz</button></a>
-            <button class="btn continue">Continue</button>
+            <button class="btn continue" id="quizP">Continue</button>
         </div>
     </section>
     <script src="./assets/script.js"></script>

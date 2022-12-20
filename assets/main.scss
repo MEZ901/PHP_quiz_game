@@ -72,7 +72,7 @@ body{
         position: relative;
         display: block;
         width: calc(300% + 1.3px);
-        height: 215px;
+        height: 100px;
     }
     .shape-fill {
     fill: purple;
@@ -121,5 +121,67 @@ body{
         }
     }
 }
-
-
+.stepper-component{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    li{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        >i{
+            margin: 0 85px;
+            font-size: 25px;
+        }
+        .text{
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .progress{
+            margin: 6px 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #202731;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            position: relative;
+            cursor: pointer;
+            .checkMark{
+                font-size: 13px;
+                display: none;
+            }
+            p{
+                font-size: 12px;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                width: 164px;
+                height: 5px;
+                background-color: #202731;
+                right: 30px;
+            }
+            &.one::after{
+                width: 0;
+                height: 0;
+            }
+        }
+        .active{
+            background-color: rgb(255, 118, 255);
+            &::after{
+                background-color: rgb(255, 118, 255);
+            }
+            p{
+                display: none;
+            }
+            .checkMark{
+                display: flex;
+            }
+        }
+    }
+}
