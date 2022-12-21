@@ -62,7 +62,6 @@ body{
         fill: purple;
     }
 }
-
 .custom-shape-divider {
     position: absolute;
     top: 0;
@@ -77,51 +76,7 @@ body{
         height: 100px;
     }
     .shape-fill {
-    fill: purple;
-    }
-}
-.info{
-    display: none;
-    width: 100%;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-    padding: 100px 20vw;
-    background: #202731;
-    height: 100vh;
-    gap: 2rem;
-    ul{
-        list-style: none;
-        li{
-            padding: 5px;
-            span{
-                color: rgb(207, 45, 207);
-                font-weight: bold;
-            }
-        }
-    }
-    .btn{
-        padding: 10px 25px;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        &.exit{
-            border: 2px solid purple;
-            background-color: inherit;
-            &:hover{
-                background-color: purple;
-            }
-        }
-        &.continue{
-            border: 2px solid purple;
-            background-color: purple;
-            &:hover{
-                background-color: rgb(154, 18, 154);
-                border: 2px solid rgb(154, 18, 154);
-            }
-        }
+        fill: purple;
     }
 }
 .stepper-component{
@@ -184,6 +139,50 @@ body{
             }
             .checkMark{
                 display: flex;
+            }
+        }
+    }
+}
+.info{
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 100px 20vw;
+    background: #202731;
+    height: 100vh;
+    gap: 2rem;
+    ul{
+        list-style: none;
+        li{
+            padding: 5px;
+            span{
+                color: rgb(207, 45, 207);
+                font-weight: bold;
+            }
+        }
+    }
+    .btn{
+        padding: 10px 25px;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        &.exit{
+            border: 2px solid purple;
+            background-color: inherit;
+            &:hover{
+                background-color: purple;
+            }
+        }
+        &.continue{
+            border: 2px solid purple;
+            background-color: purple;
+            &:hover{
+                background-color: rgb(154, 18, 154);
+                border: 2px solid rgb(154, 18, 154);
             }
         }
     }
@@ -330,4 +329,65 @@ body{
             }
         }
     }
+}
+.result_box{
+    display: none;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    padding: 100px 20vw;
+    background: #202731;
+    height: 100vh;
+    gap: 15px;
+    .icon{
+        font-size: 100px;
+        color: purple;
+        margin-bottom: 10px;
+    }
+    .complete_text{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .score_text{
+        span{
+            display: flex;
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: 500;
+            p{
+                font-weight: 600;
+                padding: 0 4px;
+            }
+        }
+    }
+    .buttons{
+        display: flex;
+        margin: 20px 0;
+        button{
+            margin: 0 10px;
+            height: 40px;
+            padding: 10px 25px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            &.quit{
+                border: 2px solid purple;
+                background-color: inherit;
+                &:hover{
+                    background-color: purple;
+                }
+            }
+            &.restart{
+                border: 2px solid purple;
+                background-color: purple;
+                &:hover{
+                    background-color: rgb(154, 18, 154);
+                    border: 2px solid rgb(154, 18, 154);
+                }
+            }
+        }
+    }
+
 }
