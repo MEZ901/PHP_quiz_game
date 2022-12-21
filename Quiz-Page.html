@@ -9,6 +9,7 @@
     <title>PHP quiz</title>
 </head>
 <body>
+    <!------------ Stepper component ------------>
     <ul class="stepper-component">
         <li>
             <i class="fa-solid fa-circle-info"></i>
@@ -35,6 +36,8 @@
             <p class="text">Result</p>
         </li>
     </ul>
+
+    <!------------ Information and rules ------------>
     <section class="info">
         <div class="custom-shape-divider">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -54,6 +57,66 @@
             <button class="btn continue" id="quizP">Continue</button>
         </div>
     </section>
+
+    <!------------ Quiz ------------>
+    <div class="quiz_box">
+        <div class="custom-shape-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <header>
+            <div class="title">PHQuiz</div>
+            <div class="timer">
+                <div class="time_text">Time Left</div>
+                <div class="time_sec">15</div>
+            </div>
+        </header>
+        <section>
+           <div class="que_text">
+                <span>What does PHP stand for?</span>
+            </div>
+            <div class="option_list">
+                <div class="option">
+                    <span>Hypertext Preprocessor</span>
+                    <div class="icon true"><i class="fa-solid fa-check"></i></div>
+                </div>
+                <div class="option">
+                    <span>Hypertext Programing</span>
+                    <div class="icon false"><i class="fa-solid fa-x"></i></div>
+                </div>
+                <div class="option">
+                    <span>Hypertext Preprograming</span>
+                    <div class="icon false"><i class="fa-solid fa-x"></i></div>
+                </div>
+                <div class="option">
+                    <span>Hometext Preprocessor</span>
+                    <div class="icon false"><i class="fa-solid fa-x"></i></div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="total_que">
+                <span><p>2</p>of<p>5</p>Questions</span>
+            </div>
+            <button class="next_btn">Next Question</button>
+        </footer>
+    </div>
+
+    <!------------ Result ------------>
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <span>and sorry, You got only <p>2</p> out of <p>5</p></span>
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
     <script src="./assets/script.js"></script>
     </body>
 </html>
