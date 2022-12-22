@@ -16,9 +16,11 @@ quizPage.onclick = function() {
     quizSection.style.display="flex" ; 
     questions.sort(function(){return Math.random()-0.5}) ;
     showQuestions(0) ;
+    queCounter(1) ;
 }
 
 let que_count = 0 ;
+let que_numb = 1 ;
 
 function reload(){
     quiz.style.display="none" ;
@@ -33,7 +35,9 @@ next_btn.onclick = ()=>{
     if(que_count < questions.length - 1){
         reload() ;
         que_count++ ;
+        que_numb++ ;
         showQuestions(que_count) ;
+        queCounter(que_numb)
     }
 }
 
@@ -47,4 +51,10 @@ function showQuestions(index){
                     + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>';
     que_text.innerHTML = que_tag ;
     option_list.innerHTML = options_tag ;
+}
+
+function queCounter(index){
+    const questions_counter = document.querySelector(".total_que") ;
+    let questions_counter_tag = '<span><p>'+ index +'</p>of<p>'+ questions.length +'</p>Questions</span>' ;
+    questions_counter.innerHTML = questions_counter_tag ;
 }
