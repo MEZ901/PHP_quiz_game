@@ -23,13 +23,13 @@ let questions = [
     },
     {
         numb: 3,
-        question: "Which of the following is the correct syntax to write a PHP code?",
-        answer: "<?php ?>",
+        question: "Which of the following is used for concatenation in PHP?",
+        answer: ". (dot)",
         options: [
-            "<?php ?>",
-            "< php >",
-            "< ? php ?>",
-            "<? ?>"
+            "+ (plus)",
+            "* (Asterisk)",
+            ". (dot)",
+            "append()"
         ]
     },
     {
@@ -108,5 +108,5 @@ let questions = [
             "12",
             "Error"
         ]
-    },
+    }
 ]
