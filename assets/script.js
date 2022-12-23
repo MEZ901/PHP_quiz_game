@@ -10,6 +10,7 @@ const total_que = document.querySelector(".total_que") ;
 const quiz = document.getElementById("quiz_container") ;
 const chase = document.getElementById("sk-chase") ;
 const option_list = document.querySelector(".option_list") ;
+const timeCount = document.querySelector(".timer .time_sec")
 
 quizPage.onclick = function() {
     two.classList.add("active") ;
@@ -18,10 +19,13 @@ quizPage.onclick = function() {
     questions.sort(function(){return Math.random()-0.5}) ;
     showQuestions(0) ;
     queCounter(1) ;
+    startTimer(30) ;
 }
 
 let que_count = 0 ;
 let que_numb = 1 ;
+let counter;
+let timeValue = 30 ;
 
 function reload(){
     quiz.style.display="none" ;
@@ -38,7 +42,10 @@ next_btn.onclick = ()=>{
         que_count++ ;
         que_numb++ ;
         showQuestions(que_count) ;
-        queCounter(que_numb)
+        queCounter(que_numb) ;
+        clearInterval(counter) ;
+        startTimer(timeValue) ;
+        next_btn.style.display = "none" ;
     }
 }
 
@@ -60,6 +67,7 @@ function queCounter(index){
 }
 
 function optionSelected(answer){
+    clearInterval(counter) ;
     let userAns = answer.textContent ;
     let correctAns = questions[que_count].answer ;
     let allOptions = option_list.children.length ;
@@ -75,5 +83,37 @@ function optionSelected(answer){
     }
     for(let i = 0; i < allOptions; i++){
         option_list.children[i].classList.add("disabled") ;
+    }
+    next_btn.style.display = "block" ;
+}
+function startTimer(time){
+    counter = setInterval(timer, 1000) ;
+    function timer(){
+        timeCount.textContent = time ;
+        time-- ;
+        if(time < 9){
+            let addZero = timeCount.textContent
+            timeCount.textContent = "0" + addZero ;
+        }
+        if(time < 7){
+            timeCount.style.background = "#a42834" ;
+            timeCount.style.border = "#a42834" ;
+        }else{
+            timeCount.style.background = "#202731" ;
+            timeCount.style.border = "#202731" ;
+        }
+        if(time < 0){
+            clearInterval(counter) ;
+            timeCount.textContent = "00" ;
+            let allOptions = option_list.children.length ;
+            let correctAns = questions[que_count].answer ;
+            for(let i = 0; i < allOptions; i++){
+                option_list.children[i].classList.add("disabled") ;
+                if(option_list.children[i].textContent == correctAns){
+                    option_list.children[i].classList.add("correct") ;
+                }
+            }
+            next_btn.style.display = "block" ;
+        }
     }
 }

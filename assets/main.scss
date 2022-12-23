@@ -216,8 +216,9 @@ body{
             justify-content: space-between;
             width: 145px;
             height: 40px;
-            background: purple;
-            border: 1px solid rgb(228, 168, 228);
+            background: rgb(212, 139, 212);
+            color: #202731;
+            border: 1px solid purple;
             border-radius: 5px;
             padding: 0 8px;
             .time_text{
@@ -228,13 +229,13 @@ body{
             .time_sec{
                 font-size: 18px;
                 font-weight: 500;
-                background: #202731;
                 height: 30px;
                 width: 45px;
                 color: #fff;
                 text-align: center;
                 line-height: 30px;
                 border-radius: 5px;
+                background: #202731;
                 border: 1px solid #202731;
                 user-select: none;
             }
@@ -305,6 +306,7 @@ body{
             }
         }
         .next_btn{
+            display: none;
             height: 40px;
             padding: 0 13px;
             font-size: 18px;
