@@ -37,6 +37,9 @@ function load(time){
     setTimeout(function(){
         quiz.style.display="block" ;
         chase.style.display="none" ; 
+        if(que_count >= questions.length - 1){
+            showResultBox() ;
+        }
     }, time);
 }
 
@@ -51,15 +54,15 @@ next_btn.onclick = ()=>{
         startTimer(timeValue) ;
         next_btn.style.display = "none" ;
     }else{
-        showResultBox() ;
+        load(2000) ;
     }
 }
 
 restart_quiz.onclick = ()=>{
-    let que_count = 0 ;
-    let que_numb = 1 ;
-    let timeValue = 30 ;
-    let userScore = 0 ;
+    que_count = 0 ;
+    que_numb = 1 ;
+    timeValue = 30 ;
+    userScore = 0 ;
     three.classList.remove("active") ;
     resultSection.style.display="none" ; 
     quizSection.style.display="flex" ; 
