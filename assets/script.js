@@ -10,7 +10,10 @@ const total_que = document.querySelector(".total_que") ;
 const quiz = document.getElementById("quiz_container") ;
 const chase = document.getElementById("sk-chase") ;
 const option_list = document.querySelector(".option_list") ;
-const timeCount = document.querySelector(".timer .time_sec")
+const timeCount = document.querySelector(".timer .time_sec") ;
+const timeText = document.querySelector(".timer .time_text") ;
+const restart_quiz = document.querySelector(".buttons .restart") ;
+const quit_quiz = document.querySelector(".buttons .quit") ;
 
 quizPage.onclick = function() {
     two.classList.add("active") ;
@@ -26,19 +29,20 @@ let que_count = 0 ;
 let que_numb = 1 ;
 let counter;
 let timeValue = 30 ;
+let userScore = 0 ;
 
-function reload(){
+function load(time){
     quiz.style.display="none" ;
     chase.style.display="block" ;
     setTimeout(function(){
         quiz.style.display="block" ;
         chase.style.display="none" ; 
-    }, 1000);
+    }, time);
 }
 
 next_btn.onclick = ()=>{
     if(que_count < questions.length - 1){
-        reload() ;
+        load(1000) ;
         que_count++ ;
         que_numb++ ;
         showQuestions(que_count) ;
@@ -46,7 +50,29 @@ next_btn.onclick = ()=>{
         clearInterval(counter) ;
         startTimer(timeValue) ;
         next_btn.style.display = "none" ;
+    }else{
+        showResultBox() ;
     }
+}
+
+restart_quiz.onclick = ()=>{
+    let que_count = 0 ;
+    let que_numb = 1 ;
+    let timeValue = 30 ;
+    let userScore = 0 ;
+    three.classList.remove("active") ;
+    resultSection.style.display="none" ; 
+    quizSection.style.display="flex" ; 
+    questions.sort(function(){return Math.random()-0.5}) ;
+    showQuestions(que_count) ;
+    queCounter(que_numb) ;
+    clearInterval(counter) ;
+    startTimer(timeValue) ;
+    next_btn.style.display = "none" ;
+}
+
+quit_quiz.onclick = ()=>{
+    window.location.href="../index.html" ;
 }
 
 function showQuestions(index){
@@ -72,6 +98,7 @@ function optionSelected(answer){
     let correctAns = questions[que_count].answer ;
     let allOptions = option_list.children.length ;
     if(userAns == correctAns){
+        userScore++ ;
         answer.classList.add("correct") ;
     }else{
         answer.classList.add("wrong") ;
@@ -90,6 +117,7 @@ function startTimer(time){
     counter = setInterval(timer, 1000) ;
     function timer(){
         timeCount.textContent = time ;
+        timeText.textContent = "Time left" ;
         time-- ;
         if(time < 9){
             let addZero = timeCount.textContent
@@ -105,6 +133,7 @@ function startTimer(time){
         if(time < 0){
             clearInterval(counter) ;
             timeCount.textContent = "00" ;
+            timeText.textContent = "Time Off" ;
             let allOptions = option_list.children.length ;
             let correctAns = questions[que_count].answer ;
             for(let i = 0; i < allOptions; i++){
@@ -115,5 +144,18 @@ function startTimer(time){
             }
             next_btn.style.display = "block" ;
         }
+    }
+}
+function showResultBox(){
+    three.classList.add("active") ;
+    quizSection.style.display="none" ; 
+    resultSection.style.display="flex" ; 
+    const scoreText = document.querySelector(".score_text") ;
+    if((userScore * 100 / questions.length) >= 50){
+        let scoreTag = '<span>Congratulations, You have passed the quiz successfully you got score <p>'+ (userScore * 100 / questions.length) +'%</p></span>' ;
+        scoreText.innerHTML = scoreTag ;
+    }else{
+        let scoreTag = '<span>Unfortunately, You have not passed the quiz successfully you got only <p>'+ (userScore * 100 / questions.length) +'%</p></span>' + '<span>You Can try again whenever you feel you are ready.</span>' ;
+        scoreText.innerHTML = scoreTag ;
     }
 }
