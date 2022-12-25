@@ -292,21 +292,30 @@ body{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .total_que{
-            span{
-                display: flex;
-                user-select: none;
-                p{
-                    font-weight: 500;
-                    padding: 0 5px;
-                    &:first-child{
-                        padding-left: 0px;
-                    }
+        gap: 15px;
+        .progress-container{
+            position: relative;
+            height: 20px;
+            width: 75%;
+            background-color: #202731;
+            border: 1px solid #eee;
+            border-radius: 7px;
+            .progress-bar{
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                border-radius: 7px;
+                background-color: purple;
+                .progress-counter{
+                    display: flex;
+                    justify-content: end;
+                    margin-right: 5px;
                 }
             }
         }
         .next_btn{
             display: none;
+            width: 25%;
             height: 40px;
             padding: 0 13px;
             font-size: 18px;

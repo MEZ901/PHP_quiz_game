@@ -108,9 +108,11 @@ function showQuestions(index){
 }
 
 function queCounter(index){
-    const questions_counter = document.querySelector(".total_que") ;
-    let questions_counter_tag = '<span><p>'+ index +'</p>of<p>'+ questions.length +'</p>Questions</span>' ;
-    questions_counter.innerHTML = questions_counter_tag ;
+    const progress_bar = document.querySelector(".progress-bar") ;
+    const progress_counter = document.querySelector(".progress-counter") ;
+    let progress = (index * 100) / questions.length ;
+    progress_counter.innerHTML = progress +"%" ;
+    progress_bar.style.width = progress +"%" ; 
 }
 
 function optionSelected(answer){
