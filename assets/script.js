@@ -1,3 +1,21 @@
+function readQuestionsFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+readQuestionsFile("../assets/questions.json", function(text){
+    var data = JSON.parse(text);
+    questions = data.questions ;
+}); 
+
+let questions ;
 const one = document.querySelector(".one") ;
 const two = document.querySelector(".two") ;
 const three = document.querySelector(".three") ;
