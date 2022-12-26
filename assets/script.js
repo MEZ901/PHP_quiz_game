@@ -1,6 +1,5 @@
 function readQuestionsFile(file, callback) {
     var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function() {
         if (rawFile.readyState === 4 && rawFile.status == "200") {
@@ -24,6 +23,7 @@ const infoSection = document.getElementById("info_section") ;
 const quizSection = document.getElementById("quiz_section") ;
 const resultSection = document.getElementById("result_section") ;
 const next_btn = document.querySelector(".next_btn") ;
+const explanation_btn = document.querySelector(".explanation_btn") ;
 const total_que = document.querySelector(".total_que") ;
 const quiz = document.getElementById("quiz_container") ;
 const chase = document.getElementById("sk-chase") ;
@@ -32,6 +32,10 @@ const timeCount = document.querySelector(".timer .time_sec") ;
 const timeText = document.querySelector(".timer .time_text") ;
 const restart_quiz = document.querySelector(".buttons .restart") ;
 const quit_quiz = document.querySelector(".buttons .quit") ;
+const modal = document.getElementById("ExplanationModal") ;
+const close_btn = document.getElementsByClassName("close")[0] ;
+const progress_bar = document.querySelector(".progress-bar") ;
+
 
 quizPage.onclick = function() {
     two.classList.add("active") ;
@@ -71,6 +75,7 @@ next_btn.onclick = ()=>{
         clearInterval(counter) ;
         startTimer(timeValue) ;
         next_btn.style.display = "none" ;
+        explanation_btn.style.display = "none" ;
     }else{
         load(2000) ;
     }
@@ -90,6 +95,7 @@ restart_quiz.onclick = ()=>{
     clearInterval(counter) ;
     startTimer(timeValue) ;
     next_btn.style.display = "none" ;
+    explanation_btn.style.display = "none" ;
 }
 
 quit_quiz.onclick = ()=>{
@@ -108,7 +114,6 @@ function showQuestions(index){
 }
 
 function queCounter(index){
-    const progress_bar = document.querySelector(".progress-bar") ;
     const progress_counter = document.querySelector(".progress-counter") ;
     let progress = (index * 100) / questions.length ;
     progress_counter.innerHTML = progress +"%" ;
@@ -135,6 +140,8 @@ function optionSelected(answer){
         option_list.children[i].classList.add("disabled") ;
     }
     next_btn.style.display = "block" ;
+    explanation_btn.style.display = "block" ;
+
 }
 function startTimer(time){
     counter = setInterval(timer, 1000) ;
@@ -166,6 +173,7 @@ function startTimer(time){
                 }
             }
             next_btn.style.display = "block" ;
+            explanation_btn.style.display = "block" ;
         }
     }
 }
@@ -180,5 +188,22 @@ function showResultBox(){
     }else{
         let scoreTag = '<span>Unfortunately, You have not passed the quiz successfully you got only <p>'+ (userScore * 100 / questions.length) +'%</p></span>' + '<span>You Can try again whenever you feel you are ready.</span>' ;
         scoreText.innerHTML = scoreTag ;
+    }
+}
+
+explanation_btn.onclick = function() {
+    const expText = modal.querySelector(".exp") ;
+    const expTag = questions[que_count].explanation ;
+    modal.style.display = "block";
+    expText.innerHTML = expTag ;
+}
+
+close_btn.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
 }

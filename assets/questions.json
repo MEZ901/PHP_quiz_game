@@ -4,6 +4,7 @@
         "numb": 1,
         "question": "What is PHP?",
         "answer": "All of the mentioned",
+        "explanation": "PHP is an open-source server-side scripting language that is used to build dynamic and interactive web pages or web applications.",
         "options": [
             "PHP is an open-source programming language",
             "PHP is used to develop dynamic and interactive websites",
@@ -15,6 +16,7 @@
         "numb": 2,
         "question": "What does PHP stand for?",
         "answer": "PHP stands for Hypertext Preprocessor",
+        "explanation": "PHP previously stood for Personal Home Page now stands for “Hypertext Preprocessor”.",
         "options": [
             "PHP stands for Preprocessor Home Page",
             "PHP stands for Pretext Hypertext Processor",
@@ -26,6 +28,7 @@
         "numb": 3,
         "question": "Which of the following is used for concatenation in PHP?",
         "answer": ". (dot)",
+        "explanation": "In PHP, the . (dot) operator is used for concatenation. Suppose there are two variables $a and $b, so the statement $a . $b will concatenate both $a and $b.",
         "options": [
             "+ (plus)",
             "* (Asterisk)",
@@ -37,6 +40,7 @@
         "numb": 4,
         "question": "Which of the following is the correct way to add a comment in PHP code?",
         "answer": "All of the mentioned",
+        "explanation": "In PHP, /* */ can also be used to comment just a single line although it is used for paragraphs. // and # are used only for single-line comments.",
         "options": [
             "#",
             "//",
@@ -48,6 +52,7 @@
         "numb": 5,
         "question": "Which is the right way of declaring a variable in PHP?",
         "answer": "$_hello",
+        "explanation": "A variable in PHP can not start with a number, also $this is mainly used to refer properties of a class so we can’t use $this as a user defined variable name.",
         "options": [
             "$3hello",
             "$_hello",
@@ -59,6 +64,7 @@
         "numb": 6,
         "question": "A function in PHP which starts with __ (double underscore) is known as __________",
         "answer": "Magic Function",
+        "explanation": "PHP functions that start with a double underscore – a “__” – are called magic functions. They are functions that are always defined inside classes, and are not stand-alone functions.",
         "options": [
             "Default Function",
             "User Defined Function",
@@ -70,6 +76,7 @@
         "numb": 7,
         "question": "PHP recognizes constructors by the name _________",
         "answer": "function __construct()",
+        "explanation": "PHP recognizes constructors by double underscore followed by the construct keyword. Its syntax is function __construct ([ argument1, argument2,…..]) { Class Initialization code }.",
         "options": [
             "function __construct()",
             "function _construct()",
@@ -81,6 +88,7 @@
         "numb": 8,
         "question": "What does PDO stand for?",
         "answer": "PHP Data Object",
+        "explanation": "PDO stands for PHP Data Object. The PDO class provides a common interface to different database applications.",
         "options": [
             "PHP Database Orientation",
             "PHP Data Orientation",
@@ -92,6 +100,7 @@
         "numb": 9,
         "question": "Which version of PHP introduced the advanced concepts of OOP?",
         "answer": "PHP 5",
+        "explanation": "Advanced concepts of OOP were introduced in PHP version 5.",
         "options": [
             "PHP 6",
             "PHP 4",
@@ -103,6 +112,7 @@
         "numb": 10,
         "question": "If $a = 12 what will be returned when ($a == 12) ? 5 : 1 is executed?",
         "answer": "5",
+        "explanation": "?: is known as ternary operator. If condition is true then the part just after the ? is executed else the part after : .",
         "options": [
             "1",
             "5",
