@@ -43,12 +43,11 @@ quizPage.onclick = function() {
     quizSection.style.display="flex" ; 
     questions.sort(function(){return Math.random()-0.5}) ;
     showQuestions(0) ;
-    queCounter(1) ;
+    queCounter(0) ;
     startTimer(30) ;
 }
 
 let que_count = 0 ;
-let que_numb = 1 ;
 let counter;
 let timeValue = 30 ;
 let userScore = 0 ;
@@ -58,32 +57,28 @@ function load(time){
     chase.style.display="block" ;
     setTimeout(function(){
         quiz.style.display="block" ;
-        chase.style.display="none" ; 
-        if(que_count >= questions.length - 1){
+        chase.style.display="none" ;
+        if(que_count > questions.length - 1){
             showResultBox() ;
         }
     }, time);
 }
 
 next_btn.onclick = ()=>{
-    if(que_count < questions.length - 1){
-        load(1000) ;
+    load(1000) ;
+    if(que_count <= questions.length - 1){
         que_count++ ;
-        que_numb++ ;
         showQuestions(que_count) ;
-        queCounter(que_numb) ;
+        queCounter(que_count) ;
         clearInterval(counter) ;
         startTimer(timeValue) ;
         next_btn.style.display = "none" ;
         explanation_btn.style.display = "none" ;
-    }else{
-        load(2000) ;
     }
 }
 
 restart_quiz.onclick = ()=>{
     que_count = 0 ;
-    que_numb = 1 ;
     timeValue = 30 ;
     userScore = 0 ;
     three.classList.remove("active") ;
@@ -91,7 +86,7 @@ restart_quiz.onclick = ()=>{
     quizSection.style.display="flex" ; 
     questions.sort(function(){return Math.random()-0.5}) ;
     showQuestions(que_count) ;
-    queCounter(que_numb) ;
+    queCounter(que_count) ;
     clearInterval(counter) ;
     startTimer(timeValue) ;
     next_btn.style.display = "none" ;
