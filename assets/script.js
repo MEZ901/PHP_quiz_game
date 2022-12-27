@@ -98,11 +98,12 @@ quit_quiz.onclick = ()=>{
 
 function showQuestions(index){
     const que_text = document.querySelector(".que_text") ;
-    let que_tag = '<span>'+ questions[index].question +'</span>' ;
-    let options_tag = '<div class="option" onclick="optionSelected(this)"><span>'+ questions[index].options[0] +'</span></div>'
-                    + '<div class="option" onclick="optionSelected(this)"><span>'+ questions[index].options[1] +'</span></div>'
-                    + '<div class="option" onclick="optionSelected(this)"><span>'+ questions[index].options[2] +'</span></div>'
-                    + '<div class="option" onclick="optionSelected(this)"><span>'+ questions[index].options[3] +'</span></div>';
+    let que_tag = `<span>${questions[index].question}</span>` ;
+    questions[index].options.sort(function(){return Math.random() - 0.5}) ;
+    let options_tag = `<div class="option" onclick="optionSelected(this)"><span>${questions[index].options[0]}</span></div>` ;
+    for(let i = 1; i < questions[index].options.length; i++){
+        options_tag += `<div class="option" onclick="optionSelected(this)"><span>${questions[index].options[i]}</span></div>` ;
+    }
     que_text.innerHTML = que_tag ;
     option_list.innerHTML = options_tag ;
 }
@@ -110,7 +111,7 @@ function showQuestions(index){
 function queCounter(index){
     const progress_counter = document.querySelector(".progress-counter") ;
     let progress = (index * 100) / questions.length ;
-    progress_counter.innerHTML = progress +"%" ;
+    progress_counter.innerHTML = Math.floor(progress) +"%" ;
     progress_bar.style.width = progress +"%" ; 
 }
 
@@ -177,10 +178,10 @@ function showResultBox(){
     resultSection.style.display="flex" ; 
     const scoreText = document.querySelector(".score_text") ;
     if((userScore * 100 / questions.length) >= 50){
-        let scoreTag = '<span>Congratulations, You have passed the quiz successfully you got score <p>'+ (userScore * 100 / questions.length) +'%</p></span>' ;
+        let scoreTag = '<span>Congratulations, You have passed the quiz successfully you got score <p>'+ Math.floor((userScore * 100 / questions.length)) +'%</p></span>' ;
         scoreText.innerHTML = scoreTag ;
     }else{
-        let scoreTag = '<span>Unfortunately, You have not passed the quiz successfully you got only <p>'+ (userScore * 100 / questions.length) +'%</p></span>' + '<span>You Can try again whenever you feel you are ready.</span>' ;
+        let scoreTag = '<span>Unfortunately, You have not passed the quiz successfully you got only <p>'+ Math.floor((userScore * 100 / questions.length)) +'%</p></span>' + '<span>You Can try again whenever you feel you are ready.</span>' ;
         scoreText.innerHTML = scoreTag ;
     }
 }
