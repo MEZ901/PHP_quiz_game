@@ -53,7 +53,7 @@
             <li>5. You'll get points on the basis of your correct answers.</li>
         </ul>
         <div class="action">
-            <a href="../index.html"><button class="btn exit">Exit Quiz</button></a>
+            <a href="../index.php"><button class="btn exit">Exit Quiz</button></a>
             <button class="btn continue" id="quizP">Continue</button>
         </div>
     </section>

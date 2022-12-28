@@ -15,14 +15,14 @@
             <p class="header">PROVE YOUR <span>PHP</span> SKILLS TO THE WORLD!</p>
         </div>
         <div class="identification">
-            <a href="./pages/login-signup.html" class="sign-up">Sign up</a>
-            <a href="./pages/login-signup.html" class="login">Login</a>
+            <a href="./pages/login-signup.php" class="sign-up">Sign up</a>
+            <a href="./pages/login-signup.php" class="login">Login</a>
         </div>
     </header>
     <section class="main">
         <div>
             <p>The goal of this quiz is to test your skills and knowledge in PHP. All what you have to do is clicking on the button below and prove yourself to the world!</p>
-            <a href="./pages/Quiz-Page.html"><button>Take the quiz</button></a>
+            <a href="./pages/Quiz-Page.php"><button>Take the quiz</button></a>
         </div>
         <img src="./assets/img/women-code.webp" alt="cover">
         <div class="wave">
