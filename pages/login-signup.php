@@ -125,10 +125,10 @@
 			<div class="signup">
 				<form>
 					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
+					<input type="text" name="username" placeholder="User name" required="">
 					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button class="signup_btn">Sign up</button>
+					<input type="password" name="password" placeholder="Password" required="">
+					<button type="submit" name="signup_btn" class="signup_btn">Sign up</button>
 				</form>
 			</div>
 
@@ -136,8 +136,8 @@
 				<form>
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button class="login_btn">Login</button>
+					<input type="password" name="password" placeholder="Password" required="">
+					<button type="submit" name="login_btn" class="login_btn">Login</button>
 				</form>
 			</div>
 	</div>  
