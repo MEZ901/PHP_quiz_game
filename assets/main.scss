@@ -11,12 +11,36 @@ body{
         display: none;
     }
 }
-.header{
-    width: 90%;
-    margin: auto;
-    span{
-        color: #202731;
-        font-weight: bold;
+.index-header{
+    display: flex;
+    justify-content: space-between;
+    .header{
+        margin-left: 25px;
+        span{
+            color: #202731;
+            font-weight: bold;
+        }
+    }
+    .identification{
+        margin: 15px 25px;
+        .sign-up{
+            text-decoration: none;
+            color: white;
+            padding-right: 5px;
+        }
+        .login{
+            text-decoration: none;
+            padding: 10px 25px;
+            width: 100%;
+            background-color: #202731;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            &:hover{
+                background-color: #232a35;
+
+            }
+        }
     }
 }
 .main{
