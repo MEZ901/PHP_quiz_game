@@ -1,3 +1,8 @@
+<?php
+    include "../services/database.php";
+    include "../includes/autoloader.php";
+    include "../services/user.services.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +17,6 @@
             align-items: center;
             min-height: 100vh;
             font-family: 'Jost', sans-serif;
-            /* background: linear-gradient(to bottom, #202731, #5e2b63, #202731); */
             background-color: purple;
         }
         .main{
@@ -122,24 +126,24 @@
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
 
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="username" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="password" placeholder="Password" required="">
-					<button type="submit" name="signup_btn" class="signup_btn">Sign up</button>
-				</form>
-			</div>
+        <div class="signup">
+            <form action="" method="POST">
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" name="username" placeholder="User name" required="">
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <button type="submit" name="signup_btn" class="signup_btn">Sign up</button>
+            </form>
+        </div>
 
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="password" placeholder="Password" required="">
-					<button type="submit" name="login_btn" class="login_btn">Login</button>
-				</form>
-			</div>
+        <div class="login">
+            <form action="" method="POST">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <button type="submit" name="login_btn" class="login_btn">Login</button>
+            </form>
+        </div>
 	</div>  
     <script src="../assets/script.js"></script>
 </body>
