@@ -29,7 +29,7 @@
             <div class="profile">
                 <p><?= $_SESSION["username"] ?></p>
                 <i class="fa-solid fa-user"></i>
-                <?php session_destroy(); ?>
+                <?php #session_destroy(); ?>
             </div>
         <?php endif; ?>
     </header>

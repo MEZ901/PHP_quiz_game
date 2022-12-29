@@ -152,6 +152,15 @@
 <body>
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
+        <?php if(isset($_SESSION["loginMessage-field"])): ?>
+            <div class="alert-field">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?php
+                    echo $_SESSION["loginMessage-field"];
+                    unset($_SESSION["loginMessage-field"]);
+                ?>
+            </div>
+        <?php endif ?>    
         <?php if(isset($_SESSION["signUpMessage-field"])): ?>
             <div class="alert-field">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
