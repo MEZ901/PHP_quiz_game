@@ -11,6 +11,31 @@ body{
         display: none;
     }
 }
+.alert-success,
+.alert-field {
+    padding: 20px;
+    color: white;
+    margin-bottom: 15px;
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            color: black;
+        }
+    }
+}
+.alert-success {
+    background-color: #4BB543;
+}
+.alert-field {
+    background-color: #f44336;
+}
 .index-header{
     display: flex;
     justify-content: space-between;
@@ -40,6 +65,14 @@ body{
                 background-color: #232a35;
 
             }
+        }
+    }
+    .profile{
+        margin: 15px 25px;
+        display: flex;
+        gap: 10px;
+        p{
+            font-weight: 500;
         }
     }
 }

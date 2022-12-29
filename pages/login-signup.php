@@ -120,12 +120,56 @@
             transform: scale(.6);
         }
 
+        /* The alert message box */
+        .alert-success {
+            padding: 20px;
+            background-color: #4BB543;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .alert-field {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .closebtn:hover {
+            color: black;
+        }
+
     </style>
 </head>
 <body>
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
-
+        <?php if(isset($_SESSION["signUpMessage-field"])): ?>
+            <div class="alert-field">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?php
+                    echo $_SESSION["signUpMessage-field"];
+                    unset($_SESSION["signUpMessage-field"]);
+                ?>
+            </div>
+        <?php endif ?>    
+        <?php if(isset($_SESSION["signUpMessage-success"])): ?>
+            <div class="alert-success">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?php
+                    echo $_SESSION["signUpMessage-success"];
+                    unset($_SESSION["signUpMessage-success"]);
+                ?>
+            </div>
+        <?php endif ?>    
         <div class="signup">
             <form action="" method="POST">
                 <label for="chk" aria-hidden="true">Sign up</label>

@@ -35,15 +35,80 @@ const modal = document.getElementById("ExplanationModal") ;
 const close_btn = document.getElementsByClassName("close")[0] ;
 const progress_bar = document.querySelector(".progress-bar") ;
 
+if(quizPage != undefined){
+    quizPage.onclick = function() {
+        two.classList.add("active") ;
+        infoSection.style.display="none" ; 
+        quizSection.style.display="flex" ; 
+        questions.sort(function(){return Math.random()-0.5}) ;
+        showQuestions(0) ;
+        queCounter(0) ;
+        startTimer(30) ;
+    }
+}
 
-quizPage.onclick = function() {
-    two.classList.add("active") ;
-    infoSection.style.display="none" ; 
-    quizSection.style.display="flex" ; 
-    questions.sort(function(){return Math.random()-0.5}) ;
-    showQuestions(0) ;
-    queCounter(0) ;
-    startTimer(30) ;
+if(next_btn != undefined){
+    next_btn.onclick = ()=>{
+        load(1000) ;
+        if(que_count <= questions.length - 1){
+            que_count++ ;
+            showQuestions(que_count) ;
+            queCounter(que_count) ;
+            clearInterval(counter) ;
+            startTimer(timeValue) ;
+            next_btn.style.display = "none" ;
+            explanation_btn.style.display = "none" ;
+        }
+    }
+}
+
+if(restart_quiz != undefined){
+    restart_quiz.onclick = ()=>{
+        que_count = 0 ;
+        timeValue = 30 ;
+        userScore = 0 ;
+        three.classList.remove("active") ;
+        resultSection.style.display="none" ; 
+        quizSection.style.display="flex" ; 
+        questions.sort(function(){return Math.random()-0.5}) ;
+        showQuestions(que_count) ;
+        queCounter(que_count) ;
+        clearInterval(counter) ;
+        startTimer(timeValue) ;
+        next_btn.style.display = "none" ;
+        explanation_btn.style.display = "none" ;
+    }
+}
+
+if(quit_quiz != undefined){
+    quit_quiz.onclick = ()=>{
+        window.location.href="../index.html" ;
+    }
+}
+
+if(explanation_btn != undefined){
+    explanation_btn.onclick = function() {
+        const expText = modal.querySelector(".exp") ;
+        const expTag = questions[que_count].explanation ;
+        modal.style.display = "block";
+        expText.innerHTML = expTag ;
+    }
+}
+
+if(close_btn != undefined){
+    close_btn.onclick = function() {
+        modal.style.display = "none";
+    }
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+if(document.querySelector(".alert-success") != undefined){
+    document.querySelector('#chk').checked ="true";
 }
 
 let que_count = 0 ;
@@ -63,38 +128,7 @@ function load(time){
     }, time);
 }
 
-next_btn.onclick = ()=>{
-    load(1000) ;
-    if(que_count <= questions.length - 1){
-        que_count++ ;
-        showQuestions(que_count) ;
-        queCounter(que_count) ;
-        clearInterval(counter) ;
-        startTimer(timeValue) ;
-        next_btn.style.display = "none" ;
-        explanation_btn.style.display = "none" ;
-    }
-}
 
-restart_quiz.onclick = ()=>{
-    que_count = 0 ;
-    timeValue = 30 ;
-    userScore = 0 ;
-    three.classList.remove("active") ;
-    resultSection.style.display="none" ; 
-    quizSection.style.display="flex" ; 
-    questions.sort(function(){return Math.random()-0.5}) ;
-    showQuestions(que_count) ;
-    queCounter(que_count) ;
-    clearInterval(counter) ;
-    startTimer(timeValue) ;
-    next_btn.style.display = "none" ;
-    explanation_btn.style.display = "none" ;
-}
-
-quit_quiz.onclick = ()=>{
-    window.location.href="../index.html" ;
-}
 
 function showQuestions(index){
     const que_text = document.querySelector(".que_text") ;
@@ -186,19 +220,4 @@ function showResultBox(){
     }
 }
 
-explanation_btn.onclick = function() {
-    const expText = modal.querySelector(".exp") ;
-    const expTag = questions[que_count].explanation ;
-    modal.style.display = "block";
-    expText.innerHTML = expTag ;
-}
 
-close_btn.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}

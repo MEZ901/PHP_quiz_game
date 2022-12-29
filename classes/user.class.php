@@ -7,7 +7,12 @@
             $stmt->execute();
         }
         public function login(){
-
+            $_SESSION["id"] = $this->id;
+            $_SESSION["username"] = $this->username;
+            $_SESSION["email"] = $this->email;
+            $_SESSION["password"] = $this->password;
+            $_SESSION["loginMessage-success"] = "welcome back ". $this->username;
+            header("location: ../index.php");
         }
         public function showQuestions(){
 

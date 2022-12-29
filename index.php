@@ -1,3 +1,8 @@
+<?php
+    include "./services/database.php";
+    include "./includes/autoloader.php";
+    include "./services/user.services.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +19,38 @@
             <h1 class="header">PHQuiz</h1>
             <p class="header">PROVE YOUR <span>PHP</span> SKILLS TO THE WORLD!</p>
         </div>
-        <div class="identification">
-            <a href="./pages/login-signup.php" class="sign-up">Sign up</a>
-            <a href="./pages/login-signup.php" class="login">Login</a>
-        </div>
+        <?php if(!isset($_SESSION["username"])): ?>
+            <div class="identification">
+                <a href="./pages/login-signup.php" class="sign-up">Sign up</a>
+                <a href="./pages/login-signup.php" class="login">Login</a>
+            </div>
+        <?php endif; ?>
+        <?php if(isset($_SESSION["username"])): ?>
+            <div class="profile">
+                <p><?= $_SESSION["username"] ?></p>
+                <i class="fa-solid fa-user"></i>
+                <?php session_destroy(); ?>
+            </div>
+        <?php endif; ?>
     </header>
     <section class="main">
         <div>
+            <?php if(isset($_SESSION["loginMessage-success"])): ?>
+                <div class="alert-success">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?php
+                    echo $_SESSION["loginMessage-success"];
+                    unset($_SESSION["loginMessage-success"]);
+                ?>
+                </div>
+            <?php endif; ?>
             <p>The goal of this quiz is to test your skills and knowledge in PHP. All what you have to do is clicking on the button below and prove yourself to the world!</p>
-            <a href="./pages/Quiz-Page.php"><button>Take the quiz</button></a>
+            <?php if(!isset($_SESSION["username"])): ?>
+                <a href="./pages/Quiz-Page.php"><button disabled>Take the quiz</button></a>
+            <?php endif; ?>
+            <?php if(isset($_SESSION["username"])): ?>
+                <a href="./pages/Quiz-Page.php"><button>Take the quiz</button></a>
+            <?php endif; ?>
         </div>
         <img src="./assets/img/women-code.webp" alt="cover">
         <div class="wave">
