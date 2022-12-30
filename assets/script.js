@@ -9,9 +9,10 @@ function readQuestionsFile(file, callback) {
     rawFile.send(null);
 }
 
-readQuestionsFile("/PHP_quiz_game/assets/questions.json", function(text){
+readQuestionsFile("/PHP_quiz_game/includes/data.php", function(text){
     var data = JSON.parse(text);
-    questions = data.questions ;
+    console.log(data);
+    questions = data ;
 }); 
 let questions ;
 const one = document.querySelector(".one") ;
