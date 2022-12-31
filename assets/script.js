@@ -9,10 +9,8 @@ function readQuestionsFile(file, callback) {
     rawFile.send(null);
 }
 
-readQuestionsFile("/PHP_quiz_game/includes/data.php", function(text){
-    var data = JSON.parse(text);
-    console.log(data);
-    questions = data ;
+readQuestionsFile("/PHP_quiz_game/includes/data.php", function(text){ 
+    questions = JSON.parse(text);
 }); 
 let questions ;
 const one = document.querySelector(".one") ;
@@ -83,7 +81,7 @@ if(restart_quiz != undefined){
 
 if(quit_quiz != undefined){
     quit_quiz.onclick = ()=>{
-        window.location.href="../index.html" ;
+        window.location.href="../index.php" ;
     }
 }
 
