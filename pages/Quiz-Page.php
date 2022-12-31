@@ -46,11 +46,12 @@
         </div>
         <h1>Some Rules of this Quiz</h1>
         <ul>
-            <li>1. You will have only <span>30 seconds</span> per each question.</li>
-            <li>2. Once you select your answer, it can't be undone.</li>
-            <li>3. You can't select any option once time goes off.</li>
-            <li>4. You can't exit from the Quiz while you're playing.</li>
-            <li>5. You'll get points on the basis of your correct answers.</li>
+            <li>1. You have <span>30 seconds</span> per each question.</li>
+            <li>2. There is only <span>one</span> option correct in each question.</li>
+            <li>3. You can see the explanation after selecting your answer.</li>
+            <li>4. Once you select your answer, it can't be undone.</li>
+            <li>5. You'll get score on the basis of your correct answers.</li>
+            <li>6. Your score will be saved on your profile.</li>
         </ul>
         <div class="action">
             <a href="../index.php"><button class="btn exit">Exit Quiz</button></a>
@@ -116,10 +117,14 @@
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
             </svg>
         </div>
-        <div class="icon">
-            <i class="fas fa-crown"></i>
-        </div>
         <div class="complete_text">It's all done!</div>
+        <div class="icon">
+            <i class="fa-solid fa-star star"></i>
+            <i class="fa-solid fa-star star"></i>
+            <i class="fa-solid fa-star star"></i>
+            <i class="fa-solid fa-star star"></i>
+            <i class="fa-solid fa-star star"></i>
+        </div>
         <div class="score_text">
             <!-- score text goes here -->
         </div>

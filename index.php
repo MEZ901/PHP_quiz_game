@@ -34,7 +34,7 @@
         <?php endif; ?>
     </header>
     <section class="main">
-        <div>
+        <div class="action">
             <?php if(isset($_SESSION["loginMessage-success"])): ?>
                 <div class="alert-success">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -44,12 +44,12 @@
                 ?>
                 </div>
             <?php endif; ?>
-            <p>The goal of this quiz is to test your skills and knowledge in PHP. All what you have to do is clicking on the button below and prove yourself to the world!</p>
+            <p>The goal of this quiz is to test your skills and knowledge in PHP. All what you have to do is clicking on the button below and <br>prove yourself to <span>the world!</span></p>
             <?php if(!isset($_SESSION["username"])): ?>
-                <a href="./pages/Quiz-Page.php"><button disabled>Take the quiz</button></a>
+                <a href="./pages/Quiz-Page.php"><button disabled>TAKE THE QUIZ</button></a>
             <?php endif; ?>
             <?php if(isset($_SESSION["username"])): ?>
-                <a href="./pages/Quiz-Page.php"><button>Take the quiz</button></a>
+                <a href="./pages/Quiz-Page.php"><button>TAKE THE QUIZ</button></a>
             <?php endif; ?>
         </div>
         <img src="./assets/img/women-code.webp" alt="cover">

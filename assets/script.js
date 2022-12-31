@@ -209,13 +209,39 @@ function showResultBox(){
     three.classList.add("active") ;
     quizSection.style.display="none" ; 
     resultSection.style.display="flex" ; 
+    const star_icon = document.querySelectorAll(".star") ;
     const scoreText = document.querySelector(".score_text") ;
-    if((userScore * 100 / questions.length) >= 50){
-        let scoreTag = '<span>Congratulations, You have passed the quiz successfully you got score <p>'+ Math.floor((userScore * 100 / questions.length)) +'%</p></span>' ;
+    let score = (userScore * 100 / questions.length);
+    if(score < 20){
+        let scoreTag = `<span>Unfortunately, You have not passed the quiz successfully you got only <p>${Math.floor(score)}%</p></span>` + `<span>You Can try again whenever you feel you are ready.</span>` ;
         scoreText.innerHTML = scoreTag ;
-    }else{
-        let scoreTag = '<span>Unfortunately, You have not passed the quiz successfully you got only <p>'+ Math.floor((userScore * 100 / questions.length)) +'%</p></span>' + '<span>You Can try again whenever you feel you are ready.</span>' ;
+        star_icon[0].classList.add("done") ;
+    }else if(score < 40){
+        let scoreTag = `<span>Oh! You was close you got <p>${Math.floor(score)}%</p></span>` + `<span>You Can try again whenever you feel you are ready.</span>` ;
         scoreText.innerHTML = scoreTag ;
+        star_icon[0].classList.add("done") ;
+        star_icon[1].classList.add("done") ;
+    }else if(score < 60){
+        let scoreTag = `<span>Congratulations, You have passed the quiz successfully you got <p>${Math.floor(score)}%</p></span>` ;
+        scoreText.innerHTML = scoreTag ;
+        star_icon[0].classList.add("done") ;
+        star_icon[1].classList.add("done") ;
+        star_icon[2].classList.add("done") ;
+    }else if(score < 80){
+        let scoreTag = `<span>Amazing, You have passed the quiz successfully You got <p>${Math.floor(score)}%</p></span>` ;
+        scoreText.innerHTML = scoreTag ;
+        star_icon[0].classList.add("done") ;
+        star_icon[1].classList.add("done") ;
+        star_icon[2].classList.add("done") ;
+        star_icon[3].classList.add("done") ;
+    }else if(score <= 100){
+        let scoreTag = `<span>You're on fire!, You have passed the quiz successfully You got <p>${Math.floor(score)}%</p></span>` ;
+        scoreText.innerHTML = scoreTag ;
+        star_icon[0].classList.add("done") ;
+        star_icon[1].classList.add("done") ;
+        star_icon[2].classList.add("done") ;
+        star_icon[3].classList.add("done") ;
+        star_icon[4].classList.add("done") ;
     }
 }
 

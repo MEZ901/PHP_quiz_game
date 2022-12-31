@@ -85,12 +85,29 @@ body{
     background: #202731;
     height: 100vh;
     gap: 5rem;
+    .action{
+        padding: 12px;
+        background: rgba( 197, 188, 188, 0.2 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 7px );
+        -webkit-backdrop-filter: blur( 7px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+        p{
+            text-align: center;
+            span{
+                color: rgb(252, 208, 65);
+                font-weight: 600;
+            }
+        }
+    }
     button{
         width: 100%;
-        padding: 5px;
+        padding: 10px;
         margin-top: 10px;
         background-color: purple;
         color: white;
+        font-weight: 500;
         border: 0;
         border-radius: 5px;
         cursor: pointer;
@@ -521,9 +538,12 @@ body{
     min-height: 100vh;
     gap: 15px;
     .icon{
-        font-size: 100px;
-        color: purple;
+        font-size: 50px;
+        color: #46505c;
         margin-bottom: 10px;
+        .done{
+            color: #FFD700;
+        }
     }
     .complete_text{
         font-size: 20px;
