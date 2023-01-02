@@ -1,6 +1,7 @@
 <?php
     if(isset($_POST["signup_btn"]))       signUpChecker();
     if(isset($_POST["login_btn"]))        loginChecker();
+    if(isset($_GET["score"]))             getScore();
 
     function signUpChecker(){
         global $connect;
@@ -34,5 +35,15 @@
         } else {
             $_SESSION["loginMessage-field"] = "Sorry email or password is incorrect";
         }
+    }
+    function getScore(){
+        include "./database.php";
+        include "../includes/autoloader.php"; 
+        $userId = $_SESSION["id"];
+        $score = $_GET["score"];
+        $date = date("j / n / Y");
+        $query = "INSERT INTO `score`(`user_id`, `score`, `date`) VALUES ('$userId','$score','$date')";
+        $stmt = $connect->prepare($query);
+        $stmt->execute();
     }
 ?>

@@ -211,31 +211,31 @@ function showResultBox(){
     resultSection.style.display="flex" ; 
     const star_icon = document.querySelectorAll(".star") ;
     const scoreText = document.querySelector(".score_text") ;
-    let score = (userScore * 100 / questions.length);
+    let score = Math.floor((userScore * 100 / questions.length));
     if(score < 20){
-        let scoreTag = `<span>Unfortunately, You have not passed the quiz successfully you got only <p>${Math.floor(score)}%</p></span>` + `<span>You Can try again whenever you feel you are ready.</span>` ;
+        let scoreTag = `<span>Unfortunately, You have not passed the quiz successfully you got only <p>${score}%</p></span>` + `<span>You Can try again whenever you feel you are ready.</span>` ;
         scoreText.innerHTML = scoreTag ;
         star_icon[0].classList.add("done") ;
     }else if(score < 40){
-        let scoreTag = `<span>Oh! You was close you got <p>${Math.floor(score)}%</p></span>` + `<span>You Can try again whenever you feel you are ready.</span>` ;
+        let scoreTag = `<span>Oh! You was close you got <p>${score}%</p></span>` + `<span>You Can try again whenever you feel you are ready.</span>` ;
         scoreText.innerHTML = scoreTag ;
         star_icon[0].classList.add("done") ;
         star_icon[1].classList.add("done") ;
     }else if(score < 60){
-        let scoreTag = `<span>Congratulations, You have passed the quiz successfully you got <p>${Math.floor(score)}%</p></span>` ;
+        let scoreTag = `<span>Congratulations, You have passed the quiz successfully you got <p>${score}%</p></span>` ;
         scoreText.innerHTML = scoreTag ;
         star_icon[0].classList.add("done") ;
         star_icon[1].classList.add("done") ;
         star_icon[2].classList.add("done") ;
     }else if(score < 80){
-        let scoreTag = `<span>Amazing, You have passed the quiz successfully You got <p>${Math.floor(score)}%</p></span>` ;
+        let scoreTag = `<span>Amazing, You have passed the quiz successfully You got <p>${score}%</p></span>` ;
         scoreText.innerHTML = scoreTag ;
         star_icon[0].classList.add("done") ;
         star_icon[1].classList.add("done") ;
         star_icon[2].classList.add("done") ;
         star_icon[3].classList.add("done") ;
-    }else if(score <= 100){
-        let scoreTag = `<span>You're on fire!, You have passed the quiz successfully You got <p>${Math.floor(score)}%</p></span>` ;
+    }else{
+        let scoreTag = `<span>You're on fire!, You have passed the quiz successfully You got <p>${score}%</p></span>` ;
         scoreText.innerHTML = scoreTag ;
         star_icon[0].classList.add("done") ;
         star_icon[1].classList.add("done") ;
@@ -243,6 +243,14 @@ function showResultBox(){
         star_icon[3].classList.add("done") ;
         star_icon[4].classList.add("done") ;
     }
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", `../services/user.services.php?score=${score}`, true);
+    xhr.onreadystatechange = ()=>{
+        if(xhr.readyState == 4 && xhr.status == 200){
+            console.log("success")
+        }
+    }
+    xhr.send(`score=${score}`);
 }
 
 
