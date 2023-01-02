@@ -42,7 +42,8 @@
         $userId = $_SESSION["id"];
         $score = $_GET["score"];
         $date = date("j / n / Y");
-        $query = "INSERT INTO `score`(`user_id`, `score`, `date`) VALUES ('$userId','$score','$date')";
+        $ipAddress = getenv("REMOTE_ADDR") ;
+        $query = "INSERT INTO `score`(`user_id`, `score`, `date`, `IP_adress`) VALUES ('$userId','$score','$date','$ipAddress')";
         $stmt = $connect->prepare($query);
         $stmt->execute();
     }
