@@ -2,6 +2,11 @@
     include "./services/database.php";
     include "./includes/autoloader.php";
     include "./services/user.services.php";
+
+    if(isset($_GET['logout'])){
+        session_unset();
+        session_destroy();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,10 +31,9 @@
             </div>
         <?php endif; ?>
         <?php if(isset($_SESSION["username"])): ?>
-            <div class="profile">
+            <div class="profile" onclick="window.location.href='./pages/profile.php'">
                 <p><?= $_SESSION["username"] ?></p>
                 <i class="fa-solid fa-user"></i>
-                <?php #session_destroy(); ?>
             </div>
         <?php endif; ?>
     </header>

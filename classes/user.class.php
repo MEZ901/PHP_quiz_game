@@ -18,7 +18,22 @@
 
         }
         public function scoreHistory(){
-
+            global $connect;
+            $id = $_SESSION['id'];
+            $query = "SELECT * FROM `score` WHERE user_id = '$id'";
+            $stmt = $connect->prepare($query);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if(sizeof($result) != 0){
+                foreach($result as $row){
+                    echo "<pre>";
+                    echo "<tr>";
+                    echo "<td>".$row['date']."</td>";
+                    echo "<td>".$row['score']."%</td>";
+                    echo "</tr>";
+                    echo "</pre>";
+                }
+            }
         }
     }
 ?>

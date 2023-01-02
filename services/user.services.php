@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST["signup_btn"]))       signUpChecker();
     if(isset($_POST["login_btn"]))        loginChecker();
-    if(isset($_GET["score"]))             getScore();
+    if(isset($_GET["score"]))             insertScore();
 
     function signUpChecker(){
         global $connect;
@@ -36,7 +36,7 @@
             $_SESSION["loginMessage-field"] = "Sorry email or password is incorrect";
         }
     }
-    function getScore(){
+    function insertScore(){
         include "./database.php";
         include "../includes/autoloader.php"; 
         $userId = $_SESSION["id"];
