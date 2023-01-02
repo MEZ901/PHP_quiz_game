@@ -13,7 +13,7 @@
 
     <title>Profile</title>
 </head>
-<body>
+<body class="profile_body">
     <div class="profile_container">
         <div class="profile">
             <div>
@@ -33,7 +33,7 @@
             </table>
             <a href="../index.php"><button class="back">Back to home</button></a>
         </div>
-        <img src="../assets/img/Portfolio Update-pana (1).svg" alt="">
+        <img src="../assets/img/Binary code-pana.svg" alt="">
     </div>
 </body>
 </html>

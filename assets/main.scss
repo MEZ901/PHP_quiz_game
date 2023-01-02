@@ -621,7 +621,7 @@ body{
                 color: white;
                 border-radius: 5px;
                 cursor: pointer;
-                border: 2px solid purple;
+                border: 2px solid rgb(241, 56, 56);
                 background-color: rgb(241, 56, 56);
                 transition: all 0.3s ease;
                 &:hover{
@@ -632,20 +632,22 @@ body{
         >p{
             margin-top: 20px; 
             font-weight: 600;
-            border-top: 2px solid #202731;
-            border-left: 2px solid #202731;
-            border-right: 2px solid #202731;
+            border-top: 2px solid purple;
+            border-left: 2px solid purple;
+            border-right: 2px solid purple;
             width: 75%;
             text-align: center;
             padding: 5px;
         }
         table{
             width: 75%;
-            border-collapse: collapse
+            border-collapse: collapse;
+            border-radius: 7px;
         }
         th, td {
             text-align: center;
-            border: 2px solid #202731;
+            border: 2px solid purple;
+            
             padding: 5px;
         }
         >a{
@@ -659,12 +661,16 @@ body{
                 border-radius: 5px;
                 cursor: pointer;
                 border: 2px solid purple;
-                background-color: #202731;
+                background-color: purple;
                 transition: all 0.3s ease;
                 &:hover{
-                    background-color: #3d4652;
+                    background-color: rgb(173, 67, 173);
+                    border: 2px solid rgb(173, 67, 173);
                 }  
             }
         }
     }
+}
+.profile_body{
+    background-color: #202731;
 }
