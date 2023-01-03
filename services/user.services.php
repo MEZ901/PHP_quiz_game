@@ -43,7 +43,19 @@
         $score = $_GET["score"];
         $date = date("j / n / Y");
         $ipAddress = getenv("REMOTE_ADDR") ;
-        $query = "INSERT INTO `score`(`user_id`, `score`, `date`, `IP_adress`) VALUES ('$userId','$score','$date','$ipAddress')";
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+        if (strpos($user_agent, 'Chrome') !== false) {
+            $browser = 'Chrome';
+        } elseif (strpos($user_agent, 'Firefox') !== false) {
+            $browser = 'Firefox';
+        } elseif (strpos($user_agent, 'Safari') !== false) {
+            $browser = 'Safari';
+        } elseif (strpos($user_agent, 'Trident') !== false) {
+            $browser = 'Internet Explorer';
+        } else {
+            $browser = 'Other';
+        }
+        $query = "INSERT INTO `score`(`user_id`, `score`, `date`, `IP_adress`, `browser`) VALUES ('$userId','$score','$date','$ipAddress', '$browser')";
         $stmt = $connect->prepare($query);
         $stmt->execute();
     }
