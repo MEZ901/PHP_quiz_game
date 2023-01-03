@@ -20,6 +20,7 @@
             $_SESSION["signUpMessage-success"] = "Account has been created successfully!";
         }
     }
+
     function loginChecker(){
         global $connect;
         $email = $_POST["email"];
@@ -36,6 +37,7 @@
             $_SESSION["loginMessage-field"] = "Sorry email or password is incorrect";
         }
     }
+    
     function insertScore(){
         include "./database.php";
         include "../includes/autoloader.php"; 
