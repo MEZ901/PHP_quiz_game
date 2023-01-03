@@ -11,6 +11,31 @@ body{
         display: none;
     }
 }
+.alert-success,
+.alert-field {
+    padding: 20px;
+    color: white;
+    margin-bottom: 15px;
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            color: black;
+        }
+    }
+}
+.alert-success {
+    background-color: #4BB543;
+}
+.alert-field {
+    background-color: #f44336;
+}
 .index-header{
     display: flex;
     justify-content: space-between;
@@ -42,6 +67,15 @@ body{
             }
         }
     }
+    .profile{
+        cursor: pointer;
+        margin: 15px 25px;
+        display: flex;
+        gap: 10px;
+        p{
+            font-weight: 500;
+        }
+    }
 }
 .main{
     position: relative;
@@ -52,12 +86,29 @@ body{
     background: #202731;
     height: 100vh;
     gap: 5rem;
+    .action{
+        padding: 12px;
+        background: rgba( 197, 188, 188, 0.2 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 7px );
+        -webkit-backdrop-filter: blur( 7px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+        p{
+            text-align: center;
+            span{
+                color: rgb(252, 208, 65);
+                font-weight: 600;
+            }
+        }
+    }
     button{
         width: 100%;
-        padding: 5px;
+        padding: 10px;
         margin-top: 10px;
         background-color: purple;
         color: white;
+        font-weight: 500;
         border: 0;
         border-radius: 5px;
         cursor: pointer;
@@ -488,9 +539,12 @@ body{
     min-height: 100vh;
     gap: 15px;
     .icon{
-        font-size: 100px;
-        color: purple;
+        font-size: 50px;
+        color: #46505c;
         margin-bottom: 10px;
+        .done{
+            color: #FFD700;
+        }
     }
     .complete_text{
         font-size: 20px;
@@ -536,4 +590,87 @@ body{
             }
         }
     }
+}
+.profile_container{
+    width: 95%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+
+    >img{
+        width: 50%;
+    }
+    .profile{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        div{
+            width: 75%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p{
+                font-weight: 700;
+            }
+            button{
+                margin: 0 10px;
+                height: 40px;
+                padding: 5px 25px;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                border: 2px solid rgb(241, 56, 56);
+                background-color: rgb(241, 56, 56);
+                transition: all 0.3s ease;
+                &:hover{
+                    background-color: rgb(255, 21, 21);
+                }   
+            }
+        }
+        >p{
+            margin-top: 20px; 
+            font-weight: 600;
+            border-top: 2px solid purple;
+            border-left: 2px solid purple;
+            border-right: 2px solid purple;
+            width: 75%;
+            text-align: center;
+            padding: 5px;
+        }
+        table{
+            width: 75%;
+            border-collapse: collapse;
+            border-radius: 7px;
+        }
+        th, td {
+            text-align: center;
+            border: 2px solid purple;
+            
+            padding: 5px;
+        }
+        >a{
+            width: 75%;
+            margin: 10px;
+            .back{
+                width: 100%;
+                height: 40px;
+                padding: 5px 25px;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                border: 2px solid purple;
+                background-color: purple;
+                transition: all 0.3s ease;
+                &:hover{
+                    background-color: rgb(173, 67, 173);
+                    border: 2px solid rgb(173, 67, 173);
+                }  
+            }
+        }
+    }
+}
+.profile_body{
+    background-color: #202731;
 }

@@ -1,8 +1,12 @@
+<?php
+    include "../services/database.php";
+    include "../includes/autoloader.php";
+    include "../services/user.services.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
     <style>
         body{
@@ -13,7 +17,6 @@
             align-items: center;
             min-height: 100vh;
             font-family: 'Jost', sans-serif;
-            /* background: linear-gradient(to bottom, #202731, #5e2b63, #202731); */
             background-color: purple;
         }
         .main{
@@ -117,30 +120,83 @@
             transform: scale(.6);
         }
 
+        /* The alert message box */
+        .alert-success {
+            padding: 20px;
+            background-color: #4BB543;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .alert-field {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .closebtn:hover {
+            color: black;
+        }
+
     </style>
 </head>
 <body>
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
+        <?php if(isset($_SESSION["loginMessage-field"])): ?>
+            <div class="alert-field">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?php
+                    echo $_SESSION["loginMessage-field"];
+                    unset($_SESSION["loginMessage-field"]);
+                ?>
+            </div>
+        <?php endif ?>    
+        <?php if(isset($_SESSION["signUpMessage-field"])): ?>
+            <div class="alert-field">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?php
+                    echo $_SESSION["signUpMessage-field"];
+                    unset($_SESSION["signUpMessage-field"]);
+                ?>
+            </div>
+        <?php endif ?>    
+        <?php if(isset($_SESSION["signUpMessage-success"])): ?>
+            <div class="alert-success">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?php
+                    echo $_SESSION["signUpMessage-success"];
+                    unset($_SESSION["signUpMessage-success"]);
+                ?>
+            </div>
+        <?php endif ?>    
+        <div class="signup">
+            <form action="" method="POST">
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" name="username" placeholder="User name" required="">
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <button type="submit" name="signup_btn" class="signup_btn">Sign up</button>
+            </form>
+        </div>
 
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button class="signup_btn">Sign up</button>
-				</form>
-			</div>
-
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button class="login_btn">Login</button>
-				</form>
-			</div>
+        <div class="login">
+            <form action="" method="POST">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="password" placeholder="Password" required="">
+                <button type="submit" name="login_btn" class="login_btn">Login</button>
+            </form>
+        </div>
 	</div>  
     <script src="../assets/script.js"></script>
 </body>
