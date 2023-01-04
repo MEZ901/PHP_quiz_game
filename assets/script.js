@@ -12,6 +12,7 @@ function readQuestionsFile(file, callback) {
 readQuestionsFile("/PHP_quiz_game/includes/data.php", function(text){ 
     questions = JSON.parse(text);
 }); 
+
 let questions ;
 const one = document.querySelector(".one") ;
 const two = document.querySelector(".two") ;
@@ -33,6 +34,11 @@ const quit_quiz = document.querySelector(".buttons .quit") ;
 const modal = document.getElementById("ExplanationModal") ;
 const close_btn = document.getElementsByClassName("close")[0] ;
 const progress_bar = document.querySelector(".progress-bar") ;
+
+let counter;
+let que_count = 0 ;
+let timeValue = 30 ;
+let userScore = 0 ;
 
 if(quizPage != undefined){
     quizPage.onclick = function() {
@@ -110,11 +116,6 @@ if(document.querySelector(".alert-success") != undefined){
     document.querySelector('#chk').checked ="true";
 }
 
-let que_count = 0 ;
-let counter;
-let timeValue = 30 ;
-let userScore = 0 ;
-
 function load(time){
     quiz.style.display="none" ;
     chase.style.display="block" ;
@@ -126,8 +127,6 @@ function load(time){
         }
     }, time);
 }
-
-
 
 function showQuestions(index){
     const que_text = document.querySelector(".que_text") ;
@@ -171,6 +170,7 @@ function optionSelected(answer){
     explanation_btn.style.display = "block" ;
 
 }
+
 function startTimer(time){
     counter = setInterval(timer, 1000) ;
     function timer(){
@@ -205,6 +205,7 @@ function startTimer(time){
         }
     }
 }
+
 function showResultBox(){
     three.classList.add("active") ;
     quizSection.style.display="none" ; 
